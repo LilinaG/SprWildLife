@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="styles_grid.css">
+    <title>Wild Life</title>
+</head>
+
+<body>
+	
+   
+    <div th:include="plantilla.html::cabecera"></div>
+
+	<main>
+		<section class="contenedor_grid">
+			<article th:each="elemento : ${atr_lista_mascotas}">
+				<img th:src="@{images/{nombre}.jpg(nombre=${elemento.nombre})}" alt="" height="" width="100%">
+				<p><strong>Nombre:</strong> <span th:text="${elemento.nombre}"></span></p>
+    			<p><strong>Descripción:</strong> <span th:text="${elemento.descripcion}"></span></p>
+    			<p><strong>Edad:</strong> <span th:text="${elemento.edad} + ' años'"></span></p>
+    			<p><strong>Ubicación:</strong> <span th:text="${elemento.provincia.provincia}"></span></p>
+			</article>
+		</section>
+	</main>
+	<div th:include="plantilla.html::footer"></div>
+
+   
+</body>
+
+</html>

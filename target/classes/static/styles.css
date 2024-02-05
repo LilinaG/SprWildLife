@@ -1,0 +1,215 @@
+@charset "UTF-8";
+/*
+CODIGO BASE DE LA WEB. NO TOCAR
+cualquier modificacion de estilos sobre esta base se hara
+en una hoja de estilos adicional y se enlazara al JSP correspondiente
+*/
+:root {
+/* Colores Azul Verdoso */
+--principal: #90a955;
+--principalOscuro: #4f772d;
+--principalMuyOscuro: #31572c;
+--principalClaro: #ecf39e;
+--principalMuyClaro: #e9f5db;
+
+/* contraste Dorado */
+--contraste: #FFD700;
+--contrasteOscuro: #CCA300;
+--contrasteClaro: #FFE066;
+
+/* Colores de Fondo */
+--colorFondoOscuro: whitesmoke;
+--colorFondoClaro: whitesmoke;
+
+/* Colores de Texto */
+--texto: #212121;
+--textoClaro: #BDBDBD;
+
+/* Tamaños */
+--sizeFuente: 12px;
+
+/* Fuentes */
+--fuente: 'Helvetica Neue', Arial, sans-serif;
+--fuenteContraste: 'Georgia', 'Times New Roman', serif;
+
+/* Alturas de cabecera y pie */
+--alturaCabecera: 180px;
+--alturaPie: 60px;
+}
+
+* {
+margin: 0;
+padding: 0;
+font-family: var(--fuente);
+color: var(--texto);
+font-size:var(--texto);
+}
+
+
+/* Estilos de la cabecera */
+
+/* Agrega tus variables CSS y otros estilos aquí */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--principal);
+    padding: 10px;
+    height:var(--alturaCabecera);
+
+}
+
+#contenido {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%; /* O ajusta según sea necesario */
+}
+
+.logo_izq,
+.logo_der {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.logo {
+    width: 200px; /* Ajusta según sea necesario */
+    height: auto;
+}
+
+h1 {
+    margin: 0;
+    color: var(--principalMuyClaro);
+    font-family: var(--fuenteContraste);
+    font-size: 50px; /* Ajusta según sea necesario */
+    text-align: center;
+    flex-grow: 1;
+}
+
+
+
+
+
+
+/* Estilos del menu */
+/* Resto de tu código */
+
+#toggleButton {
+    display: none;
+}
+
+#toggleLabel {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 50px;
+    padding: 8px;
+    color: var(--principalMuyClaro);
+    cursor: pointer;
+    z-index: 999; 
+}
+
+#toggleLabel:hover {
+    background-color: var(--principalClaro);
+    color: var(--contrasteClaro);
+}
+
+#toggleButton:checked ~ nav {
+    left: 0;
+}
+
+nav {
+    background-color: var(--principal);
+    width: var(--alturaCabecera);
+    position: fixed;
+    top: 150px; 
+    left: -100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: left 0.3s ease;
+   
+}
+
+nav ul {
+	list-style: none;
+}
+
+
+.enlace_menu {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px; 
+    text-decoration: none;
+    list-style: none;
+    font-size: 20px;
+    color: #e9f5db;
+}
+
+
+
+.enlace_menu > a {
+    display: block;
+    width: 100%;
+    background-color: var(--principalOscuro);
+    padding: 8px 30px;
+    color: var(--contraste);
+    font-weight: bold;
+    font-size: 12px;
+    font-weight: bolder;
+   
+    
+    
+}
+
+.enlace_menu > a:hover {
+    background-color: var(--principalClaro);
+    color: var(--contrasteClaro);
+}
+
+.enlace_menu > a:active {
+    background-color: var(--contraste);
+    color: var(--principalMuyOscuro);
+    outline: none; /* Elimina el borde de foco al hacer clic */
+}
+
+
+
+/* estilos del cuerpo */
+main{
+    background-color: var(--fondOscuro) ;
+    padding: var(--paddingGeneral);
+    min-height: calc(100vh - (var(--alturaCabecera) + var(--alturaPie) + var(--alturaMenu) + calc(4 * var(--paddingGeneral))));
+
+}
+
+section{
+    background-color:var(--fondoClaro) ;
+    padding: var(--paddingGeneral);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(40, 36, 36, 0.3);
+}
+
+/* estilos del pie */
+footer {
+    background-color: var(--principal);
+    height: var(--alturaPie);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p{
+    margin-bottom: var(--paddingGeneral);
+    font-size: 22px;
+    color: var(--principalMuyClaro);
+    font-weight: bold;
+}}
+

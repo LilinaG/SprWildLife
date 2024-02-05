@@ -1,0 +1,13 @@
+
+
+.contenedor_grid {  
+	display: grid;
+  	grid-template-columns: 1fr 1fr 1fr 1fr;
+  	gap: 10px 10px;
+  	grid-auto-flow: row;
+}
+
+article {
+	background-color: white;
+	padding: 10px;
+}

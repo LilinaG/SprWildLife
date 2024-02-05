@@ -1,0 +1,47 @@
+<div th:fragment="cabecera">
+	
+	<header>
+		<div id="contenido">
+	
+			<div class="logo_izq"><img src="/images/logo.jpg" alt="Logo Izquierda" class="logo"></div>
+			<div><h1>Wild Life</h1></div>
+			<div class="logo_der"><img src="/images/logo.jpg" alt="Logo Derecha" class="logo"></div>
+		</div>
+	
+	</header>
+
+	<input type="checkbox" id="toggleButton">
+    <label for="toggleButton" id="toggleLabel">&#9776;</label>
+    
+    
+    <nav>
+        <ul>
+			<li>
+                <a href="menu_inicio" class="enlace_menu">INICIO</a>
+            </li>
+            <li>
+                <a href="menu_perros" class="enlace_menu">PERROS</a>
+            </li>
+            <li>
+                <a href="menu_gatos" class="enlace_menu">GATOS</a>
+            </li>
+            <li>
+                <a href="menu_conejos" class="enlace_menu">CONEJOS</a>
+            </li>
+            <li>
+                <a href="menu_pajaros" class="enlace_menu">PÁJAROS</a>
+            </li>
+            <li>
+                <a href="menu_tortugas" class="enlace_menu">TORTUGAS</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div th:fragment="footer"> 
+	<footer>
+        <p>Designed by: Liliana</p>
+    </footer>
+ </div>
+ 
+ 

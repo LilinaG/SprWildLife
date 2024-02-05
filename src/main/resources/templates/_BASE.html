@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Plantilla</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+	<div th:include="plantilla.html::cabecera"></div>
+
+	<main>
+		<aside>
+			<div th:include="plantilla.html::menu_lat"></div>
+		</aside>
+
+		<section>
+			contenido de la pagina
+
+
+		</section>
+
+
+		
+	</main>
+
+	<div th:include="plantilla.html::pie"></div>
+
+</body>
+</html>

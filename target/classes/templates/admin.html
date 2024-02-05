@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Plantilla</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="styles_admin.css">
+	
+</head>
+
+<body>
+
+	<div th:include="plantilla.html::cabecera"></div>
+
+	<main>
+		<section>
+			
+			<p>Introducir un nuevo animal</p>
+			
+			<br>
+
+			<form th:action="@{/guardar_mascota}" th:object="${objeto_entidad}" method="post">
+
+				<input type="text" th:field="*{nombre}" name="nombre" placeholder="Nombre">
+				<input type="text" th:field="*{edad}" name="edad" placeholder="Edad">
+				<input type="text" th:field="*{descripcion}" name="descripcion" placeholder="Descripcion">
+				<input type="text" th:field="*{foto}" name="foto" placeholder="foto">
+
+				<select name="especie.id" th:field="*{especie.id}">
+					<option th:each="elemento : ${atr_lista_especies}" th:value="${elemento.id}"
+						th:text="${elemento.especie}"></option>
+				</select>
+
+
+				<select name="provincia.id" th:field="*{provincia.id}">
+					<option th:each="elemento : ${atr_lista_provincias}" th:value="${elemento.id}"
+						th:text="${elemento.provincia}"></option>
+				</select>
+
+				<input type="submit">
+
+			</form>
+
+			<table border="1">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nombre</th>
+						<th>Edad</th>
+						<th>Descripción</th>
+						<th>Foto</th>
+						<th>Provincia</th>
+						<th>Especie</th>
+						<th>Opciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="elemento : ${atr_lista_mascotas}">
+						<td th:text="${elemento.id}"></td>
+						<td th:text="${elemento.nombre}"></td>
+						<td th:text="${elemento.edad}"></td>
+						<td th:text="${elemento.descripcion}"></td>
+						<td th:text="${elemento.foto}"></td>
+						<td th:text="${elemento.provincia.provincia}"></td>
+						<td th:text="${elemento.especie.especie}"></td>
+						<td>
+							<a th:href="'/cargar_modificar/'+${elemento.id}">Modificar</a>
+
+							<a th:href="'/borrar_mascota/'+${elemento.id}">Borrar</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</main>
+</body>
+</html>

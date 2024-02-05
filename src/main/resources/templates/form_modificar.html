@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Plantilla</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+
+<body>
+
+    <div th:include="plantilla.html::cabecera"></div>
+
+    <main>
+
+        <section>
+            <form th:action="@{/modificar_mascota}" th:object="${objeto_entidad}" method="post">
+
+                <input type="text" th:field="*{id}" name="id" placeholder="id" readonly>
+                <input type="text" th:field="*{nombre}" name="nombre" placeholder="Nombre">
+                <input type="text" th:field="*{edad}" name="edad" placeholder="Edad">
+                <input type="text" th:field="*{descripcion}" name="descripcion" placeholder="Descripcion">
+                <input type="text" th:field="*{foto}" name="foto" placeholder="foto">
+
+                <select name="especie.id" th:field="*{especie.id}">
+                    <option th:each="elemento : ${atr_lista_especies}" th:value="${elemento.id}" th:text="${elemento.especie}"></option>
+                </select>
+
+                <select name="provincia.id" th:field="*{provincia.id}">
+                    <option th:each="elemento : ${atr_lista_provincias}" th:value="${elemento.id}" th:text="${elemento.provincia}"></option>
+                </select>
+
+                <input type="submit">
+
+            </form>
+        </section>
+    </main>
+
+    
+
+</body>
+</html>
